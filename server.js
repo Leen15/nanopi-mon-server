@@ -74,7 +74,7 @@ async function saveDataOnDB(client_data, metabase_data) {
     cube_version: metabase_data.cube_version || "",
     timestamp: Math.floor(Date.now()/1000)
   }];
-  var query = "INSERT INTO nanopi_mon.cubes_data (mac_address, uptime, load, temperature, venue_id, venue_name, town, total_calls, last_call, cube_version, timestamp)";
+  var query = "INSERT INTO nanopi_mon.cubes_data (mac_address, hostname, uptime, load, temperature, local_ip, vpn_ip, venue_id, venue_name, town, total_calls, last_call, cube_version, timestamp)";
   const r = await clickhouse.insert(query, rows).toPromise();
 
   console.log(query, rows, r);
