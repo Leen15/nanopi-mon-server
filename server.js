@@ -25,12 +25,12 @@ async function prepareDB() {
   console.log ("##### CHECK DB STRUCTURE #########");
   const queries = [
       `CREATE DATABASE IF NOT EXISTS nanopi_mon`,
-    //  `DROP TABLE IF EXISTS nanopi_mon.cubes_data`,
+      `DROP TABLE IF EXISTS nanopi_mon.cubes_data`,
       `CREATE TABLE IF NOT EXISTS nanopi_mon.cubes_data (
         mac_address String,
         uptime Float64,
         load Float64,
-        temperature UInt32,
+        temperature Float64,
         venue_id UInt32,
         venue_name String,
         town String,
