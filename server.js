@@ -61,7 +61,7 @@ async function saveDataOnDB(client_data, metabase_data) {
     load: client_data.load,
     temperature: client_data.temperature,
     venue_id: metabase_data.id || 0,
-    venue_name: metabase_data.venue_name || "",
+    venue_name: metabase_data.name || "",
     town: metabase_data.town || "",
     total_calls: metabase_data.total_calls || 0,
     last_call: Math.floor(last_call.getTime()/1000) || "0000000000",
