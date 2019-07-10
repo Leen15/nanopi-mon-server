@@ -60,12 +60,12 @@ async function saveDataOnDB(client_data, metabase_data) {
 
   let rows = [{
     mac_address: client_data.mac,
-    hostname: client_data.hostname,
+    hostname: client_data.hostname || "",
     uptime: client_data.uptime,
     load: client_data.load,
     temperature: client_data.temperature,
-    local_ip: client_data.local_ip,
-    vpn_ip: client_data.vpn_ip,
+    local_ip: client_data.local_ip  || "",
+    vpn_ip: client_data.vpn_ip  || "",
     venue_id: metabase_data.id || 0,
     venue_name: metabase_data.name || "",
     town: metabase_data.town || "",
