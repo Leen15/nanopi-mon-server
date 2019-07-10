@@ -25,12 +25,15 @@ async function prepareDB() {
   console.log ("##### CHECK DB STRUCTURE #########");
   const queries = [
       `CREATE DATABASE IF NOT EXISTS nanopi_mon`,
-    //  `DROP TABLE IF EXISTS nanopi_mon.cubes_data`,
+      // `DROP TABLE IF EXISTS nanopi_mon.cubes_data`,
       `CREATE TABLE IF NOT EXISTS nanopi_mon.cubes_data (
         mac_address String,
+        hostname String,
         uptime Float64,
         load Float64,
         temperature Float64,
+        local_ip String,
+        vpn_ip String,
         venue_id UInt32,
         venue_name String,
         town String,
@@ -57,9 +60,12 @@ async function saveDataOnDB(client_data, metabase_data) {
 
   let rows = [{
     mac_address: client_data.mac,
+    hostname: client_data.hostname,
     uptime: client_data.uptime,
     load: client_data.load,
     temperature: client_data.temperature,
+    local_ip: client_data.local_ip,
+    vpn_ip: client_data.vpn_ip,
     venue_id: metabase_data.id || 0,
     venue_name: metabase_data.name || "",
     town: metabase_data.town || "",

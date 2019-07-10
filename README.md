@@ -5,7 +5,10 @@
 
 A nodejs app for store on a Clickhouse DB hardware info about aarch64 NanoPI boards (NEO2 and NEO-Plus-2 100% tested).  
 it saves:
-- cube_mac_address
+- mac_address
+- hostname
+- local ip
+- vpn ip
 - uptime
 - load
 - temperature
